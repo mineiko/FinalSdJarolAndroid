@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{modo}} Users
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">UserName</ion-label>
+            <ion-input [(ngModel)]="copy.userName"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="copy.password"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Status</ion-label>
+            <ion-select [(ngModel)]="copy.estatus">
+                <ion-option value="1">Activo</ion-option>
+                <ion-option value="2">Inactivo</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Created</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.created"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Modified</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.modified"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Birth</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.birth"></ion-datetime>
+        </ion-item>
+        <ion-item>
+                <ion-label color="primary">Gender</ion-label>
+                <ion-select [(ngModel)]="copy.gender">
+                    <ion-option value="1">Masculino</ion-option>
+                    <ion-option value="2">Femenino</ion-option>
+                </ion-select>
+            </ion-item>
+        <ion-item>
+            <ion-label color="primary">Role Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.roleId"></ion-input>
+        </ion-item>
+
+    </ion-list>
+    <ion-fab right bottom>
+        <button *ngIf="modo === 'Nuevo'" ng-disabled="cargando" (click)="agregar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+        <button *ngIf="modo === 'Editar'" ng-disabled="cargando" (click)="editar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

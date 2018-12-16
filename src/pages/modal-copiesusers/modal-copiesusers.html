@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{modo}} CopiesUsers
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.id"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">User Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.userId"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Status</ion-label>
+            <ion-select [(ngModel)]="copy.status">
+                <ion-option value="1">Activo</ion-option>
+                <ion-option value="2">Inactivo</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Created</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.created"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Finish</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.finish"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <ion-fab right bottom>
+        <button *ngIf="modo === 'Nuevo'" ng-disabled="cargando" (click)="agregar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+        <button *ngIf="modo === 'Editar'" ng-disabled="cargando" (click)="editar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

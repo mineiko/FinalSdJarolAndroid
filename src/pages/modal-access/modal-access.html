@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{modo}} Access
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+            <ion-item>
+                    <ion-label>Created</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.created"></ion-datetime>
+                </ion-item>
+        <ion-item>
+            <ion-label color="primary">Ip</ion-label>
+            <ion-input [(ngModel)]="copy.ip"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">User Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.userId"></ion-input>
+        </ion-item>
+       
+        <ion-item>
+            <ion-label color="primary">User Agent</ion-label>
+            <ion-input [(ngModel)]="copy.userAgent"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-fab right bottom>
+        <button *ngIf="modo === 'Nuevo'" ng-disabled="cargando" (click)="agregar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+        <button *ngIf="modo === 'Editar'" ng-disabled="cargando" (click)="editar()" ion-fab color="success">
+            <ion-icon name="checkmark"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

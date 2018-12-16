@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        {{modo}} Copies
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">Article Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.articleId" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Branch Id</ion-label>
+            <ion-input type="number" [(ngModel)]="copy.branchId"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Status</ion-label>
+            <ion-select [(ngModel)]="copy.status">
+                    <ion-option value="1">Activo</ion-option>
+                    <ion-option value="2">Inactivo</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Available</ion-label>
+            <ion-toggle [(checked)]="copy.available"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Created</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.created"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Modified</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="copy.modified"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary">Details</ion-label>
+            <ion-input [(ngModel)]="copy.details"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-fab right bottom>
+        <button *ngIf="modo === 'Nuevo'" ng-disabled="cargando" (click)="agregar()" ion-fab color="success"><ion-icon name="checkmark"></ion-icon></button>
+        <button *ngIf="modo === 'Editar'" ng-disabled="cargando" (click)="editar()" ion-fab color="success"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-fab>
+</ion-content>
